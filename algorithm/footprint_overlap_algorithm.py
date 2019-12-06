@@ -85,9 +85,22 @@ class FootprintOverlapAlgorithm(QgsProcessingAlgorithm):
             self.OUTPUT,
             context
         )
-        feedback.pushInfo('Delete duplicate Geometries')
-        result = processing.runAndLoadResults("qgis:deleteduplicategeometries", {
+
+        feedback.pushInfo('Join Attributes by Location')
+        result = processing.run("qgis:joinattributesbylocation", {
             'INPUT': footprint,
+            'JOIN': footprint,
+            'PREDICATE': [2],
+            'JOIN_FIELDS': [],
+            'METHOD': 1,
+            'DISCARD_NONMATCHING': False,
+            'PREFIX': '',
+            'OUTPUT': 'TEMPORARY_OUTPUT'
+        }, context=context, feedback=feedback)
+
+        feedback.pushInfo('Delete Duplicate Geometries')
+        result = processing.runAndLoadResults("qgis:deleteduplicategeometries", {
+            'INPUT': result['OUTPUT'],
             'OUTPUT': output
         }, context=context, feedback=feedback)
 
