@@ -31,7 +31,7 @@ __copyright__ = '(C) 2019 by GISCAN'
 __revision__ = '$Format:%H$'
 
 from qgis.core import QgsProcessingProvider
-from .footprint_overlap_algorithm import FootprintOverlapAlgorithm
+from footprint.algorithm.footprint_overlap_algorithm import FootprintOverlapAlgorithm
 
 
 class FootprintProvider(QgsProcessingProvider):
