@@ -1,2 +1,2 @@
 # footprint
-QGIS plugin to manger an aerial imagery footprint
+QGIS plugin to mange an aerial imagery footprint
