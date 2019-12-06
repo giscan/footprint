@@ -35,5 +35,5 @@ def classFactory(iface):  # pylint: disable=invalid-name
     :type iface: QgsInterface
     """
     #
-    from .footprint import FootprintPlugin
-    return FootprintPlugin()
+    from .footprint import Footprint
+    return Footprint(iface)

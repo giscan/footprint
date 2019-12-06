@@ -34,6 +34,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterVectorDestination)
 import processing
 
+
 class FootprintOverlapAlgorithm(QgsProcessingAlgorithm):
     """
     This algorithm will count the overlap of the aerial imagery footprint
