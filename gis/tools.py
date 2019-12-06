@@ -25,14 +25,13 @@ def count_overlap(layer, out):
         'OUTPUT': 'TEMPORARY_OUTPUT'
     }
 
-    # result = processing.run('qgis:joinattributesbylocation', params_join)
+    result = processing.run('qgis:joinattributesbylocation', params_join)
 
     params_delete = {
-        'INPUT': layer,
+        'INPUT': result['OUTPUT'],
         'OUTPUT': 'TEMPORARY_OUTPUT'
     }
     if out == []:
         params_delete['OUTPUT'] = out
 
-    print(params_delete)
     result = processing.runAndLoadResults("qgis:deleteduplicategeometries", params_delete)
