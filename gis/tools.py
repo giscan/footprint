@@ -19,13 +19,13 @@ def count_overlap(layer, out):
         'JOIN': layer,
         'PREDICATE': [2],
         'JOIN_FIELDS': [],
-        'METHOD': 1,
+        'SUMMARIES': [0],
         'DISCARD_NONMATCHING': False,
         'PREFIX': '',
         'OUTPUT': 'TEMPORARY_OUTPUT'
     }
 
-    result = processing.run('qgis:joinattributesbylocation', params_join)
+    result = processing.run("qgis:joinbylocationsummary", params_join)
 
     params_delete = {
         'INPUT': result['OUTPUT'],
