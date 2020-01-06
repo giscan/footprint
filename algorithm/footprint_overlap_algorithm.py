@@ -86,13 +86,13 @@ class FootprintOverlapAlgorithm(QgsProcessingAlgorithm):
             context
         )
 
-        feedback.pushInfo('Join Attributes by Location')
-        result = processing.run("qgis:joinattributesbylocation", {
+        feedback.pushInfo('Join Attributes by Location Summary')
+        result = processing.run("qgis:joinbylocationsummary", {
             'INPUT': footprint,
             'JOIN': footprint,
             'PREDICATE': [2],
             'JOIN_FIELDS': [],
-            'METHOD': 1,
+            'SUMMARIES': [0],
             'DISCARD_NONMATCHING': False,
             'PREFIX': '',
             'OUTPUT': 'TEMPORARY_OUTPUT'
